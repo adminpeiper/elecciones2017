@@ -1,0 +1,34 @@
+.divAlingHorizontal, .divScrap, .divNumero18Porc, .divNumero22Porc, .divNumero10Porc, .divNumero8Porc, .divNombreSemielaboradoResultado
+{
+display: inline-table;
+margin-right: 1%;
+margin-top: 1%;
+margin-bottom: 15px;
+width: 18%;
+}
+
+.divScrap {
+width: 6%!important;
+}
+
+.divNombreSemielaboradoResultado {
+width: 30%!important;
+}
+
+.divNumero8Porc{
+    width: 8% !important;
+}
+
+.divNumero10Porc{
+    width: 10% !important;
+}
+
+.divNumero18Porc{
+    width: 18% !important;
+}
+
+.divNumero22Porc{
+    width: 22% !important;
+}
+
+

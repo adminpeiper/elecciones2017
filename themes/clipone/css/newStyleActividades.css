@@ -1,0 +1,16 @@
+.divAlingHorizontal, .divColumnas
+{
+    display: inline-table;
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-bottom: 15px;
+    width: 18%;
+}
+
+.divColumnas{
+    width: 40% !important;    
+}
+
+.divRowUp, .divRowDown{
+    width: 100% !important;    
+}

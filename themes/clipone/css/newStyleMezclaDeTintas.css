@@ -1,0 +1,28 @@
+.divAlingHorizontal, .divFormula, .divGridMateriaPrima, .divFormPartial, .divNumeros, .divCodigoMateriaPrima, .divDescripcionMateriaPrima{
+    display: inline-table;
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-bottom: 15px;
+    width: 15%;
+}
+
+.divFormula, .divGridMateriaPrima{
+    width: 50% !important;
+}
+
+.divFormPartial{
+    width: 99% !important;
+}
+
+.divNumeros{
+    width: 8% !important;
+}
+
+.divCodigoMateriaPrima{
+    width: 10% !important;
+}
+
+.divDescripcionMateriaPrima{
+    width: 30% !important;
+}
+

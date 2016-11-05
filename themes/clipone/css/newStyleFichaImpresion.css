@@ -1,0 +1,92 @@
+.divAlingHorizontal, .divAncho, .divAlto, .divAprobado, .divObservacion, .divDescripcionDT, .divDistorcion, .divLPI, .divArchivoFinal, 
+.divDescripcion, .divOrdenDeArte, .divFechaFichaImpresion, .divNombreCliente, .divNombreVendedor, .divCodigo, .divSello, .divEspecificacion,
+.divNombresDatos{
+    display: inline-table;
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-bottom: 15px;
+    width: 15%;
+}
+
+.divAncho, .divAlto{
+    width: 6% !important;
+}
+
+.divAprobado{
+    width: 7% !important;
+}
+
+.divObservacion{
+    width: 60% !important;
+}
+
+.divDescripcionDT{
+    width: 20% !important;
+}
+
+.divDistorcion, .divLPI{
+    width: 8% !important;
+}
+
+.divArchivoFinal{
+    width: 60% !important;
+}
+
+.divDescripcion{
+    width: 70% !important;
+}
+
+.divCodigo, .divSello, .divEspecificacion{
+    width: 12% !important;
+}
+
+.divOrdenDeArte{
+    width: 8% !important;
+}
+
+.divFechaFichaImpresion{
+    width: 10% !important;
+}
+
+.divNombreCliente, .divNombreVendedor, .divNombresDatos{
+    width: 25% !important;
+}
+
+.divContenedorCentral{
+    display: inline-table;
+    width: 70% !important;
+    float: left;
+    padding-right: 15px;    
+}
+
+.divContenedorCentralFichaTecnica{    
+    width: 100% !important;    
+}
+
+.divContenedorCentralFichaImpresion{    
+    width: 100% !important;    
+}
+
+.divContenedorDerecha{
+    display: inline-table;
+    width: 30% !important;
+    float: left;
+    padding-right: 15px;
+}
+
+.divContenedorDerechaView{
+    display: inline-table;
+    width: 30% !important;
+    float: right;
+    padding-right: 15px;
+}
+
+.divContenedorCabecera{
+    display: inline;
+    width: 100% !important;    
+}
+
+.divContenedorBottom{
+    display: inline-table;
+    width: 90% !important;    
+}

@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Raleway Thin'), local('Raleway-Thin'), url(../fonts/ralewyFont/Raleway-Thin.woff) format('woff2'), url(../fonts/ralewyFont/Raleway-Thin.woff) format('woff');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Raleway ExtraLight'), local('Raleway-ExtraLight'), url(../fonts/ralewyFont/Raleway-ExtraLight.woff) format('woff2'), url(../fonts/ralewyFont/Raleway-ExtraLight.woff) format('woff');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Raleway Light'), local('Raleway-Light'), url(../fonts/ralewyFont/Raleway-Light.woff) format('woff2'), url(../fonts/ralewyFont/Raleway-Light.woff) format('woff');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Raleway'), url(../fonts/ralewyFont/Raleway-Regular.woff) format('woff2'), url(../fonts/ralewyFont/Raleway-Regular.woff) format('woff');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Raleway Medium'), local('Raleway-Medium'), url(../fonts/ralewyFont/Raleway-Medium.woff) format('woff2'), url(../fonts/ralewyFont/Raleway-Medium.woff) format('woff');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Raleway SemiBold'), local('Raleway-SemiBold'), url(../fonts/ralewyFont/Raleway-SemiBold.woff) format('woff2'), url(../fonts/ralewyFont/Raleway-SemiBold.woff) format('woff');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Raleway Bold'), local('Raleway-Bold'), url(../fonts/ralewyFont/Raleway-Bold.woff) format('woff2'), url(../fonts/ralewyFont/Raleway-Bold.woff) format('woff');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Raleway ExtraBold'), local('Raleway-ExtraBold'), url(../fonts/ralewyFont/Raleway-ExtraBold.woff) format('woff2'), url(../fonts/ralewyFont/Raleway-ExtraBold.woff) format('woff');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Raleway Heavy'), local('Raleway-Heavy'), url(../fonts/ralewyFont/Raleway-Heavy.woff) format('woff2'), url(../fonts/ralewyFont/Raleway-Heavy.woff) format('woff');
+}

@@ -1,0 +1,22 @@
+.divAlingHorizontal {
+    display: inline-table;
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-bottom: 15px;
+    width: 15%;
+}
+
+.divGrid{
+    width: 50% !important;    
+}
+
+.divDetalle {    
+    width: 90% !important;
+}
+
+.divBotonesReporte{
+    display: inline-table;    
+    float: right;
+    width: 18% !important; 
+    margin-right: 5%;
+}

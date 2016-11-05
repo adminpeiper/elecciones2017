@@ -1,0 +1,28 @@
+.divAlingHorizontal, .divColumnas
+{
+    display: inline-table;
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-bottom: 15px;
+    width: 18%;
+}
+
+.divColumnas{
+    width: 40% !important;    
+}
+
+.divDetallesTotales, .divMateriaPrima, .divActividades
+{
+    display: inline;
+    margin-right: 1%;
+    margin-top: 1%;
+    //margin-bottom: 15px;
+    width: 90%;
+}
+
+.divTotales, .divGrids{
+    display: inline;
+    margin-right: 1%;
+    margin-top: 1%;    
+    width: 90%;
+}

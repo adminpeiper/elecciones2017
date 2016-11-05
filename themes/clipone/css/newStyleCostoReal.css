@@ -1,0 +1,42 @@
+.divAlingHorizontal, .divColumnas
+{
+    display: inline-table;
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-bottom: 15px;
+    width: 18%;
+}
+
+.divColumnas{
+    width: 40% !important;    
+}
+
+.divDetallesTotales, .divMateriaPrima, .divActividades
+{
+    display: inline;
+    margin-right: 1%;
+    margin-top: 1%;
+    //margin-bottom: 15px;
+    width: 90%;
+}
+
+.divTotales, .divGrids{
+    display: inline;
+    margin-right: 1%;
+    margin-top: 1%;    
+    width: 90%;
+}
+
+.divGridAlicuotas, .divIEL{
+    display: inline-table;
+    margin-right: 1%;
+    margin-top: 1%;    
+    width: 40% !important;
+}
+
+.divDatosIEL{
+    display: inline-table;
+    margin-right: 1%;
+    margin-top: 1%;    
+    width: 45% !important;
+}

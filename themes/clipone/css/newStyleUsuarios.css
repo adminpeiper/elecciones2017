@@ -1,0 +1,11 @@
+.divAlingHorizontal{
+    display: inline-table;
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-bottom: 15px;
+    width: 15%;
+}
+
+.divButton{    
+    width: 15%;
+}

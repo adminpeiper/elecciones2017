@@ -1,0 +1,134 @@
+.divAlingHorizontal, .divFormula, .divGridMateriaPrima, .divFormPartial, .divNumeros, .divCodigoMateriaPrima, .divDescripcionMateriaPrima,
+.divDescripcionDiseño, .divDescripcionSustrato, .divEspesor, .divAnchoPelicula, .divCapacidadMaquina, .divPlacaFlexible, 
+.divAncho, .divAlingButtonPrincipal, .divTotales, .divPesoTara, .divPesoBruto, .divPesoNeto, .divRollosImpresos, 
+.divPesoInicial, .divPesoFinal, .divPesoConsumo, .divTotalesMateriaPrima, .divFichaImpresion, .divTiempoMontaje,
+.divTemperaturaSecado, .divVelocidadmtsMin{
+    display: inline-table;
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-bottom: 15px;
+    width: 15%;
+}
+
+.divFormula{
+    width: 50% !important;
+}
+
+.divGridMateriaPrima{
+    width: 80% !important;
+}
+
+.divFichaImpresion{
+    width: 60% !important;
+}
+
+.divFormPartial{
+    width: 80% !important;
+}
+
+.divNumeros{
+    width: 8% !important;
+}
+
+.divCodigoMateriaPrima{
+    width: 15% !important;
+}
+
+.divDescripcionMateriaPrima{
+    width: 30% !important;
+}
+
+.divDescripcionDiseño{
+    width: 25% !important;
+}
+
+.divDescripcionSustrato{
+    width: 15% !important;
+}
+
+.divEspesor{
+    width: 8% !important;
+}
+
+.divAnchoPelicula{
+    width: 8% !important;
+}
+
+.divCapacidadMaquina{
+    width: 10% !important;
+}
+
+.divPlacaFlexible{
+    width: 10% !important;
+}
+
+.divAncho{
+    width: 8% !important;
+}
+
+.divAlingButtonPrincipal{
+    width: 10% !important;
+}
+
+.divAlingTabs
+{
+display: inline-table;
+width: 70%;
+}
+
+.divTotales{
+    width: 80% !important;
+}
+
+.divPesoTara, .divPesoBruto, .divPesoNeto{
+    width: 20% !important;
+}
+
+.divRollosImpresos{
+    width: 80% !important;
+}
+
+.divPesoInicial, .divPesoFinal, .divPesoConsumo{
+    width: 10% !important;
+}
+
+.divTotalesMateriaPrima{
+    width: 80% !important;
+}
+
+.divTiempoMontaje{
+    width: 10% !important;
+}
+
+.divTemperaturaSecado{
+    width: 10% !important;
+}
+
+.divVelocidadmtsMin{
+    width: 10% !important;
+}
+
+.div50Porciento{
+    width: 60% !important;
+}
+
+.div40Porciento{
+    width: 40% !important;
+}
+
+.div100Porciento{
+    width: 100% !important;
+}
+
+.divPorcentajes, .div50Porciento, .div40Porciento, .div100Porciento{
+    float: left;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+}
+
+.divSegundoNivel, .divPrimerNivel{
+    width: 100% !important;
+}
+

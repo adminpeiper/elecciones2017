@@ -1,0 +1,118 @@
+.buttonClase {
+  display: inline;
+  margin: 0 auto;
+  margin-top: 20px;
+  max-width: 200px;
+  padding: 10px 0;
+  background: #007CFF;
+  color: white;
+  border-radius: 6px;
+  border:0px;
+  font-family: "Helvetica Neue Medium", "Helvetica Medium", "Helvetica Bold", "Helvetica", "Arial", serif;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.divAlingHorizontal, .divAlingHorizontal10, .divAlingHorizontal15, .divAlingHorizontal20, .divAlingHorizontal25, .divAlingHorizontal30
+, .divAlingHorizontal45, .divAlingHorizontal55
+{
+display: inline-table;
+margin-right: 1%;
+margin-top: 1%;
+margin-bottom: 15px;
+width: 18%;
+}
+
+.divAlingHorizontal55
+{
+    width: 55%;
+}
+
+.divAlingHorizontal45
+{
+    width: 45%;
+}
+
+.divAlingHorizontal30
+{
+    width: 30%;
+}
+
+.divAlingHorizontal25
+{
+    width: 25%;
+}
+
+.divAlingHorizontal20
+{
+    width: 20%;
+}
+
+.divAlingHorizontal15
+{
+    width: 15%;
+}
+
+.divAlingHorizontal10
+{
+    width: 10%;
+}
+
+.divAlingHorizontalParametros
+{
+display: inline-table;
+margin-right: 1%;
+margin-top: 1%;
+width: 48%;
+}
+
+.divAlingHorizontalRutaProduccion
+{
+display: inline-table;
+margin-right: 1%;
+margin-top: 1%;
+border-right: black solid thin;
+width: 30%
+}
+
+.divAlingGeneralTabs
+{
+//display: inline-table;
+width: 100%;
+}
+
+.divAlingCheckBoxList
+{
+display: inline-table;
+width: 30%;
+}
+
+.divAlingTabs
+{
+display: inline-table;
+width: 70%;
+}
+
+.dropDownListAdminGF
+{
+    float: left; 
+    margin-right: 8%; 
+    width: 50%; 
+    height: 35px;
+    font-size: 15px;
+    padding: 6px 12px;
+}
+
+.labelGeneral
+{
+    float: left; 
+    color: #666666;
+    font-family: "Raleway",sans-serif;
+    font-weight: 200;
+    letter-spacing: -1px;
+    margin: 0 0 15px;
+    padding: 0;
+    font-size: 18px;
+    margin-right: 8%; 
+}

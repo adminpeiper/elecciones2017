@@ -1,0 +1,100 @@
+.divAlingHorizontal, .divObservacion, .divNumSemana, .divFecha, .divOrdenPedido,
+.divHoraInicio, .divHoraFin, .divPesoMuestra, .divNumFundas, .divScrap, .divTotalesRollos, 
+.divTotalUnidadesRollos, .divTotalScrap, .divTotalUndSueltas, .divTotalPesoRKG{
+    display: inline-table;
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-bottom: 15px;
+    width: 15%;
+}
+
+.cabecera {
+    margin-right: 1%;
+    margin-top: 1%;    
+    width: 100%;
+}
+
+.datosCorteSello{
+    margin-right: 1%;
+    margin-top: 1%;    
+    width: 100%;
+}
+
+.datosFichaTecnica{
+    margin-right: 1%;
+    margin-top: 1%;    
+    width: 100%;
+}
+
+.datosFichaTecnicaDetalles, .divSustrato, .divMedida, .divInsecticida, .divTipo, .divRegimen, .divUndPaquete, .divPerforacion, .divTroquel{
+    display: inline-table;
+    margin-right: 1%;
+    margin-top: 1%;    
+    width: 20%;
+}
+
+.divUndPaquete{
+    width: 8% !important;
+}
+
+.divSustrato, .divMedida, .divInsecticida, .divTipo, .divRegimen, .divPerforacion, .divTroquel{
+    width: 10% !important;
+}
+
+.divObservacion{
+    width: 50%!important;
+}
+
+.divNumSemana, .divScrap{
+    width: 5%!important;
+}
+
+.divFecha, .divOrdenPedido{
+    width: 10%!important;
+}
+
+.divCorteSelloGrid{
+    width: 100%!important;
+}
+
+.divHoraInicio, .divHoraFin{
+    width: 6%!important;
+}
+
+.divPesoMuestra, .divNumFundas{
+    width: 10%!important;
+}
+
+.divTotalesRollos{
+    width: 85%!important;
+}
+
+.divTotalUnidadesRollos, .divTotalScrap, .divTotalUndSueltas, .divTotalPesoRKG{
+    width: 10%!important;
+}
+
+.divReporteCabecera{
+    display: inline;    
+    width: 100%;
+}
+.divReporteIzquierda{
+    display: inline-table;    
+    width: 40%;
+}
+.divReporteDerecha{
+    display: inline-table;    
+    width: 50%;
+}
+.divReporteObservaciones{
+    display: inline-table;    
+    width: 40%;
+}
+.divReportePiePaginaFirmas{
+    display: inline-table;    
+    width: 50%;
+    margin-top: -6%;
+}
+.divReportePiePaginaFoto{
+    display: inline-table;    
+    width: 25%;
+}
