@@ -45,6 +45,52 @@
             <i class="fa fa-chevron-up"></i>
         </a>
     </div>
+    <?php $modelCantidatos = new Candidatos;?>
+    <?php foreach($modelCantidatos->findAll() as $model) {?>
+    
+        <div class="portfolio-modal modal fade" id="portfolioModal<?php echo $model->idcandidatos;?>" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <h2><?php echo $model->nombrecandidatos;?></h2>
+                                <hr class="fa fa-fw fa-minus">
+                                <?php $rutaImagen = Yii::app()->baseUrl."/images/".$model->rutaimagen; ?>
+                                <img src="<?php echo $rutaImagen; ?>" class="img-responsive img-centered" alt="">
+                                <h3>Redes Sociales</h3>
+                                <ul class="list-inline">
+                                    <?php if(!empty($model->usuariotwitter)){?>
+                                        <li>
+                                            <a href="https://www.facebook.com/<?php echo $model->usuariotwitter;?>" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                                        </li>
+                                    <?php }?>
+                                    <?php if(!empty($model->usuariofacebook)){?>
+                                        <li>
+                                            <a href="https://twitter.com/<?php echo $model->usuariofacebook;?>" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                                        </li>                            
+                                    <?php }?>
+                                    <?php if(!empty($model->paginaweb)){?>
+                                        <li>
+                                            <a href="<?php echo $model->paginaweb;?>" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-link"></i></a>
+                                        </li>                            
+                                    <?php }?>
+                                </ul>
+                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    <?php }?>
 
 <!-- jQuery -->
     <script src="<?php echo $baseUrl;?>/vendor/jquery/jquery.min.js"></script>

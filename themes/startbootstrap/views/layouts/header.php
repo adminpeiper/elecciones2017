@@ -14,8 +14,8 @@
       $baseUrl = Yii::app()->theme->baseUrl; 
       $cs = Yii::app()->getClientScript();
       Yii::app()->clientScript->registerCoreScript('jquery');
-    ?>
-
+      date_default_timezone_set('America/Bogota');
+    ?>    
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo $baseUrl;?>/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
