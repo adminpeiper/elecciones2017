@@ -45,10 +45,30 @@
             <i class="fa fa-chevron-up"></i>
         </a>
     </div>
-    <?php $modelCantidatos = new Candidatos;?>
-    <?php foreach($modelCantidatos->findAll() as $model) {?>
     
-        <div class="portfolio-modal modal fade" id="portfolioModal<?php echo $model->idcandidatos;?>" tabindex="-1" role="dialog" aria-hidden="true">
+    <?php 
+        //$servername = "localhost:3306";
+        //$username = "adminE17";
+        $servername = "localhost";
+        $username = "root";
+        $password = "admin2017";
+        $dbname = "elecciones2017pc";
+    
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        } 
+
+        $sql = "SELECT * FROM candidatos";
+        $result = $conn->query($sql);
+    ?>
+    
+    <?php //foreach($modelCantidatos->findAll() as $model) {?>
+    <?php while($model = $result->fetch_assoc()) { ?>
+    
+        <div class="portfolio-modal modal fade" id="portfolioModal<?php echo $model['idcandidatos'];?>" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-content">
                 <div class="close-modal" data-dismiss="modal">
                     <div class="lr">
@@ -60,25 +80,25 @@
                     <div class="row">
                         <div class="col-lg-8 col-lg-offset-2">
                             <div class="modal-body">
-                                <h2><?php echo $model->nombrecandidatos;?></h2>
+                                <h2><?php echo $model['nombrecandidatos'];?></h2>
                                 <hr class="fa fa-fw fa-minus">
-                                <?php $rutaImagen = Yii::app()->baseUrl."/images/".$model->rutaimagen; ?>
+                                <?php $rutaImagen = Yii::app()->baseUrl."/images/".$model['rutaimagen']; ?>
                                 <img src="<?php echo $rutaImagen; ?>" class="img-responsive img-centered" alt="">
                                 <h3>Redes Sociales</h3>
                                 <ul class="list-inline">
-                                    <?php if(!empty($model->usuariotwitter)){?>
+                                    <?php if(!empty($model['usuariotwitter'])){?>
                                         <li>
-                                            <a href="https://www.facebook.com/<?php echo $model->usuariotwitter;?>" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                                            <a href="https://www.facebook.com/<?php echo $model['usuariotwitter'];?>" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
                                         </li>
                                     <?php }?>
                                     <?php if(!empty($model->usuariofacebook)){?>
                                         <li>
-                                            <a href="https://twitter.com/<?php echo $model->usuariofacebook;?>" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                                            <a href="https://twitter.com/<?php echo $model['usuariofacebook'];?>" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
                                         </li>                            
                                     <?php }?>
                                     <?php if(!empty($model->paginaweb)){?>
                                         <li>
-                                            <a href="<?php echo $model->paginaweb;?>" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-link"></i></a>
+                                            <a href="<?php echo $model['paginaweb'];?>" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-link"></i></a>
                                         </li>                            
                                     <?php }?>
                                 </ul>

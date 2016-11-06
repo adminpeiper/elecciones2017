@@ -15,6 +15,27 @@
         </div>
     </header>
 
+    <?php
+    //$servername = "localhost:3306";
+    //$username = "adminE17";
+    $servername = "localhost";
+    $username = "root";
+    $password = "admin2017";
+    $dbname = "elecciones2017pc";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
+
+    $sql = "SELECT * FROM candidatos";
+    $result = $conn->query($sql);
+
+    //$conn->close();
+    ?>
+
     <!-- Portfolio Grid Section -->
     <section id="portfolio">
         <div class="container">
@@ -25,22 +46,25 @@
                 </div>
             </div>
             <div class="row">
-                <?php $modelCantidatosIndex = new Candidatos;?>
-                <?php foreach($modelCantidatosIndex->findAll() as $modelIndex) {?>
+                <?php //$modelCantidatosIndex = new Candidatos;?>
+                <?php while($row = $result->fetch_assoc()) { ?>
                     <div class="col-sm-3 portfolio-item">
-                        <a href="#portfolioModal<?php echo $modelIndex->idcandidatos;?>" class="portfolio-link" data-toggle="modal">
+                        <a href="#portfolioModal<?php echo $row['idcandidatos'];?>" class="portfolio-link" data-toggle="modal">
                             <div class="caption">
                                 <div class="caption-content">
                                     <i class="fa fa-search-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <?php $rutaImagen = Yii::app()->baseUrl."/images/".$modelIndex->rutaimagen; ?>
+                            <?php $rutaImagen = Yii::app()->baseUrl."/images/".$row['rutaimagen']; ?>
                             <img src="<?php echo $rutaImagen;?>" class="img-responsive" alt="">
-                            <h3><?php echo $modelIndex->nombrecandidatos;?></h3>
+                            <h3><?php echo $row['nombrecandidatos'];?></h3>
                         </a>
                     </div>
-                <?php }?>                
+                <?php }?>                           
             </div>
+            <?php
+            $conn->close();
+            ?>
         </div>
     </section>
 
