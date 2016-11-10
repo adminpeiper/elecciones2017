@@ -46,6 +46,7 @@
                 <p>Al momento de votar <b>no guardamos</b> tu número de telefóno, correo, dirección IP o ningún otro tipo de información, 
                 es totalmente anónimo.</p>
             </div>
+            <br>
             
             <?php
                 //$servername = "localhost:3306";
@@ -63,7 +64,43 @@
                 }
             ?>
             
-            <div class="col-lg-8 col-lg-offset-2">
+            <?php
+                $sqlC = "SELECT c.idcandidatos, c.nombrecandidatos,
+                (select count(idcandidato) from votacion where idcandidato = c.idcandidatos and estado = 'A') as 'numeroVotos'
+                FROM candidatos c 
+                WHERE c.estado = 'A'";
+                $resultC = $conn->query($sqlC);
+            ?>
+
+            <?php $totalVotos = 0;
+                while($rowC = $resultC->fetch_assoc()) { 
+                $totalVotos+= $rowC['numeroVotos'];
+            }?>
+            
+            <div class="col-lg-9">
+                <?php $resultC = $conn->query($sqlC);
+                    while($rowCD = $resultC->fetch_assoc()) { 
+                        $porcentajeVoto = ($rowCD['numeroVotos']/$totalVotos) * 100;
+                        $porcentajeVoto = number_format($porcentajeVoto,0,'','');
+                ?>
+
+                    <div class="col-sm-3 portfolio-item">               
+                        <h5><?php echo $rowCD['nombrecandidatos'];?></h5>
+                        <div class="c100 p<?php echo $porcentajeVoto?>">                            
+                            <span><?php echo $porcentajeVoto.'%'.'&nbsp;'.$rowCD['nombrecandidatos'];?></span>                        
+                            <div class="slice">
+                                <div class="bar"></div>
+                                <div class="fill"></div>
+                            </div>
+                        </div>                    
+                    </div>
+
+                <?php } ?>
+
+                
+            </div>
+            
+            <div class="col-lg-3">
                 <?php $form=$this->beginWidget('CActiveForm', array(
                         'id'=>'votacion-form',
                         'enableClientValidation'=>true,
@@ -94,37 +131,7 @@
                 <?php $this->endWidget(); ?>
             </div>
             
-            <?php
-                $sqlC = "SELECT c.idcandidatos, c.nombrecandidatos,
-                (select count(idcandidato) from votacion where idcandidato = c.idcandidatos and estado = 'A') as 'numeroVotos'
-                FROM candidatos c 
-                WHERE c.estado = 'A'";
-                $resultC = $conn->query($sqlC);
-            ?>
-
-            <?php $totalVotos = 0;
-                while($rowC = $resultC->fetch_assoc()) { 
-                $totalVotos+= $rowC['numeroVotos'];
-            }?>
-
-            <?php $resultC = $conn->query($sqlC);
-                while($rowCD = $resultC->fetch_assoc()) { 
-                    $porcentajeVoto = ($rowCD['numeroVotos']/$totalVotos) * 100;
-                    $porcentajeVoto = number_format($porcentajeVoto,0,'','');
-            ?>
-
-                <div class="col-sm-3 portfolio-item">
-                    <h5 align="center"><?php echo $rowCD['nombrecandidatos'];?></h5>
-                    <div class="c100 p<?php echo $porcentajeVoto?> big">
-                        <span><?php echo $porcentajeVoto.'%';?></span>                        
-                        <div class="slice">
-                            <div class="bar"></div>
-                            <div class="fill"></div>
-                        </div>
-                    </div>                    
-                </div>
-
-            <?php } $conn->close(); ?>
+            <?php $conn->close(); ?>
         </div>
     </div>
 </section>
