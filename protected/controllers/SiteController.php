@@ -112,4 +112,41 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+        
+        public function actionVotacion()
+	{
+            if(isset($_POST['radio'])) {
+                $voto = !empty($_POST['radio']) ? 0 : $_POST['radio'];
+                
+                $this->guardarVotacion($_POST['radio']);
+            }
+            
+            $this->render('votacion');
+	}
+        
+        public function guardarVotacion($idCandidato)
+        {
+            try 
+            {
+                $servername = "localhost:3306";
+                $username = "root";
+                $password = "root";
+                $dbname = "elecciones2017pc";
+
+                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                } 
+
+                $sql = "INSERT INTO votacion (idcandidato, estado)
+                VALUES (".$idCandidato.", 'A')";
+                
+                if (!$conn->query($sql)) {
+                    throw $conn->error;
+                }
+
+                $conn->close();                                
+            } catch (Exception $ex) { throw $ex; }            
+        }
 }
