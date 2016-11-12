@@ -1,0 +1,15 @@
+{
+	"folders":
+	[
+		{			
+			"path": "htdocs\\elecciones2017"
+		}
+	]
+	"settings": {
+        "xdebug": {
+             "url": "http://localhost/elecciones2017/index.php",
+             "path-mapping":"/htdocs/elecciones2017/" : "C:/Apache24/htdocs/elecciones2017/",
+             "launch_browser": true,
+        }
+    }
+}

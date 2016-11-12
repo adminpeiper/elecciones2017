@@ -30,6 +30,9 @@
                     <a href=<?php echo Yii::app()->request->baseUrl."/index.php";?>>Inicio</a>
                 </li>
                 <li>
+                    <a href=<?php echo Yii::app()->request->baseUrl."/index.php?r=site/votacion";?>>Votación</a>
+                </li>
+                <li>
                     <a href=<?php echo Yii::app()->request->baseUrl."/index.php?r=site/disclaimer";?>>Disclaimer</a>
                 </li>
                 <li>

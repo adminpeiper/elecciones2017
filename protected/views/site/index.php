@@ -30,7 +30,7 @@
         die("Connection failed: " . $conn->connect_error);
     } 
 
-    $sql = "SELECT * FROM candidatos";
+    $sql = "SELECT * FROM candidatos where estado = 'A' order by idcandidatos";
     $result = $conn->query($sql);
 
     //$conn->close();
@@ -95,7 +95,7 @@
         die("Connection failed: " . $conn->connect_error);
     } 
 
-    $sql = "SELECT * FROM candidatos";
+    $sql = "SELECT * FROM candidatos where estado = 'A' order by idcandidatos";
     $result = $conn->query($sql);
 
     //$conn->close();
@@ -111,13 +111,56 @@
                 </div>
             </div>-->
             <div class="row">
+                <?php $firstTime = false; ?>
                 <?php while($row = $result->fetch_assoc()) { ?>
-                    <div class="col-lg-2">
+                    <div class="col-lg-2" style="width: 14%">
                         <?php $rutaImagen = Yii::app()->baseUrl."/images/".$row['rutaimagen']; ?>
-                        <img src="<?php echo $rutaImagen;?>" class="img-circle" alt="" style="width: 40%; height: 40%">
+                        <img src="<?php echo $rutaImagen;?>" class="img-circle" alt="" style="width: 100%; height: 100%">
+                        
+                        <?php $sqlP = "select pro.idpropuestas, cat.idcategorias, cat.nombrecategoria, pro.descripcion
+                        from elecciones2017pc.propuestas pro join elecciones2017pc.categorias cat on pro.idcategoria = cat.idcategorias
+                            where pro.estado = 'A' and pro.idcandidato =".$row['idcandidatos']." and cat.estado = 'A' order by pro.idcandidato";
+                          $resultP = $conn->query($sqlP);
+                    ?>
+                    <div class="row">
+                        
+                        <?php while($rowP = $resultP->fetch_assoc()) { ?>                           
+                        
+                            <?php if(!$firstTime) { ?> 
+                                <h5><?php echo $rowP['nombrecategoria'];?></h5>
+                            <?php } else { echo "<h5>&nbsp;</h5>"; } ?>
+                                <div class="col-lg-12" style="border-left: 4px solid #2c3e50;">                            
+                                    <p style="font-size: 130%"><?php echo $rowP['descripcion'];?></p>
+                                </div>
+                        <?php }?>
                     </div>
-                <?php }?>    
+
+                    </div>
+                    <?php $firstTime = true; ?>
+                <?php }?>
             </div>
+            
+            <?php /*
+                $sqlCat = "SELECT * FROM categorias where estado = 'A' order by idcategorias";
+                $resultCat = $conn->query($sqlCat);
+            ?>
+
+            <?php while($rowCat = $resultCat->fetch_assoc()) { ?>
+
+                    <?php $sqlP = "select pro.idpropuestas, cat.idcategorias, cat.nombrecategoria, pro.descripcion
+                        from elecciones2017pc.propuestas pro join elecciones2017pc.categorias cat on pro.idcategoria = cat.idcategorias
+                            where pro.estado = 'A' and pro.idcategoria =".$rowCat['idcategorias']." and cat.estado = 'A' order by pro.idcandidato";
+                          $resultP = $conn->query($sqlP);
+                    ?>
+                <div class="row">
+
+                    <?php while($rowP = $resultP->fetch_assoc()) { ?>                    
+                            <div class="col-lg-2" style="width: 14%">                            
+                                <p style="font-size: 130%"><?php echo $rowP['descripcion'];?></p>
+                            </div>
+                    <?php }?>
+                </div>
+            <?php }*/?>
         </div>
     </section>
     

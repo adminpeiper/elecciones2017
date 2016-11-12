@@ -3,11 +3,20 @@
 
 <head>
 
+    <?php $rutaImagenHeader = Yii::app()->baseUrl."/images/elecciones2017.png"; ?>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Vota con conocimiento, vota inteligentemente.">
     <meta name="author" content="">
+    <meta name="image" content=<?php echo $rutaImagenHeader;?>>
+
+    <meta property="og:url"           content="http://elecciones2017.peipercode.com" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Elecciones 2017" />
+    <meta property="og:description"   content="Vota con conocimiento, vota inteligentemente." />
+    <meta property="og:image"         content= <?php echo $rutaImagenHeader;?> />
 
     <title><?php echo CHtml::encode($this->pageTitle);?></title>
     <?php                            
@@ -37,3 +46,12 @@
 </head>
 
 <body id="page-top" class="index">
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>

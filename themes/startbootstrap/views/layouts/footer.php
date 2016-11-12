@@ -51,7 +51,7 @@
         //$username = "adminE17";
         $servername = "localhost:3306";
         $username = "root";
-        $password = "root";
+        $password = "admin2017";
         $dbname = "elecciones2017pc";
     
         // Create connection

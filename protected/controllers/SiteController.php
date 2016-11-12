@@ -75,6 +75,7 @@ class SiteController extends Controller
         
         public function actionDisclaimer()
 	{
+			$this->pageTitle = "Elecciones 2017 - Disclaimer";
             $this->render('disclaimer');
 	}
 
@@ -113,24 +114,27 @@ class SiteController extends Controller
 		$this->redirect(Yii::app()->homeUrl);
 	}
         
-        public function actionVotacion()
+    public function actionVotacion()
 	{
+		$votado = false;
             if(isset($_POST['radio'])) {
                 $voto = !empty($_POST['radio']) ? 0 : $_POST['radio'];
                 
                 $this->guardarVotacion($_POST['radio']);
+                $votado = true;
             }
             
-            $this->render('votacion');
+            $this->pageTitle = "Elecciones 2017 - Votación";
+            $this->render('votacion',array('votado'=> $votado));
 	}
         
         public function guardarVotacion($idCandidato)
         {
             try 
             {
-                $servername = "localhost:3306";
+                $servername = "localhost";
                 $username = "root";
-                $password = "root";
+                $password = "admin2017";
                 $dbname = "elecciones2017pc";
 
                 $conn = new mysqli($servername, $username, $password, $dbname);

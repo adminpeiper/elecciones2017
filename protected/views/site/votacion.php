@@ -46,14 +46,15 @@
                 <p>Al momento de votar <b>no guardamos</b> tu número de telefóno, correo, dirección IP o ningún otro tipo de información, 
                 es totalmente anónimo.</p>
             </div>
+
             <br>
             
             <?php
                 //$servername = "localhost:3306";
                 //$username = "adminE17";
-                $servername = "localhost:3306";
+                $servername = "localhost";
                 $username = "root";
-                $password = "root";
+                $password = "admin2017";
                 $dbname = "elecciones2017pc";
 
                 // Create connection
@@ -77,59 +78,81 @@
                 $totalVotos+= $rowC['numeroVotos'];
             }?>
             
-            <div class="col-lg-9">
-                <?php $resultC = $conn->query($sqlC);
-                    while($rowCD = $resultC->fetch_assoc()) { 
-                        $porcentajeVoto = ($rowCD['numeroVotos']/$totalVotos) * 100;
-                        $porcentajeVoto = number_format($porcentajeVoto,0,'','');
-                ?>
+            <?php if($votado) {?>
 
-                    <div class="col-sm-3 portfolio-item">               
-                        <h5><?php echo $rowCD['nombrecandidatos'];?></h5>
-                        <div class="c100 p<?php echo $porcentajeVoto?>">                            
-                            <span><?php echo $porcentajeVoto.'%'.'&nbsp;'.$rowCD['nombrecandidatos'];?></span>                        
-                            <div class="slice">
-                                <div class="bar"></div>
-                                <div class="fill"></div>
-                            </div>
-                        </div>                    
+                <div class="col-lg-12"> 
+                    <div id="votado" class="alert-success">
+                        <p>Gracias por votar, por favor no te olvides de compartir.</p>
+                        <h3>“Un pueblo que lee es más libre y más difícil de engañar." - José Luis Corral </h3>
                     </div>
-
-                <?php } ?>
-
+                </div>
                 
-            </div>
-            
-            <div class="col-lg-3">
-                <?php $form=$this->beginWidget('CActiveForm', array(
-                        'id'=>'votacion-form',
-                        'enableClientValidation'=>true,
-                        'clientOptions'=>array(
-                                'validateOnSubmit'=>true,
-                        ),
-                )); ?>
-                    <?php $sql = "SELECT * FROM candidatos";
-                          $result = $conn->query($sql);                                
+                <div class="col-lg-1"> 
+                    <a class="twitter-share-button" href="https://twitter.com/share" data-size="large"
+                    data-text="Yo voto con conocimiento" data-url="http://elecciones2017.peipercode.com"
+                    data-hashtags="VotoInteligente" data-via="peipercode"> Tweet </a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+
+                <div class="col-lg-1"> 
+                    <div class="fb-share-button" data-href="http://elecciones2017.peipercode.com" data-layout="button_count" data-mobile-iframe="true" data-size="large"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Felecciones2017.peipercode.com%2F&amp;src=sdkpreparse">Compartir</a></div>
+                </div>
+
+                <br>
+                
+                <div class="col-lg-12">
+                    <?php $resultC = $conn->query($sqlC);
+                        while($rowCD = $resultC->fetch_assoc()) { 
+                            $porcentajeVoto = ($rowCD['numeroVotos']/$totalVotos) * 100;
+                            $porcentajeVoto = number_format($porcentajeVoto,0,'','');
                     ?>
 
-                    <?php while($row = $result->fetch_assoc()) { ?>
-
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12">
-                                <input type="radio" value="<?php echo $row['idcandidatos']?>" name="radio">
-                                <span><?php echo $row['nombrecandidatos'];?></span>
-                            </div>
+                        <div class="col-sm-3 portfolio-item">               
+                            <h5><?php echo $rowCD['nombrecandidatos'];?></h5>
+                            <div class="c100 p<?php echo $porcentajeVoto?>">                            
+                                <span><?php echo $porcentajeVoto.'%'; ?></span>                        
+                                <div class="slice">
+                                    <div class="bar"></div>
+                                    <div class="fill"></div>
+                                </div>
+                            </div>                    
                         </div>
 
                     <?php } ?>
-                    <br>
-                    <div class="row">
-                        <div class="form-group col-xs-12">
-                            <?php echo CHtml::submitButton('Votar',array("submit"=>array("site/Votacion"),"class"=>"btn btn-success btn-lg")); ?>                                                    
+                </div>
+            <?php } ?>
+            
+            <?php if(!$votado) {?>
+                <div class="col-lg-12">
+                    <?php $form=$this->beginWidget('CActiveForm', array(
+                            'id'=>'votacion-form',
+                            'enableClientValidation'=>true,
+                            'clientOptions'=>array(
+                                    'validateOnSubmit'=>true,
+                            ),
+                    )); ?>
+                        <?php $sql = "SELECT * FROM candidatos where estado ='A'";
+                              $result = $conn->query($sql);                                
+                        ?>
+
+                        <?php while($row = $result->fetch_assoc()) { ?>
+
+                            <div class="row control-group">
+                                <div class="form-group col-xs-12">
+                                    <input type="radio" value="<?php echo $row['idcandidatos']?>" name="radio">
+                                    <span><?php echo $row['nombrecandidatos'];?></span>
+                                </div>
+                            </div>
+
+                        <?php } ?>
+                        <br>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <?php echo CHtml::submitButton('Votar',array("submit"=>array("site/Votacion"),"class"=>"btn btn-success btn-lg")); ?>                                                    
+                            </div>
                         </div>
-                    </div>
-                <?php $this->endWidget(); ?>
-            </div>
+                    <?php $this->endWidget(); ?>
+                </div>
+            <?php } ?>
             
             <?php $conn->close(); ?>
         </div>
