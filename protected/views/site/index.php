@@ -30,7 +30,7 @@
         die("Connection failed: " . $conn->connect_error);
     } 
 
-    $sql = "SELECT * FROM candidatos where estado = 'A' order by idcandidatos";
+    $sql = "SELECT * FROM candidatos where estado = 'A' and partidopolitico is not null order by idcandidatos";
     $result = $conn->query($sql);
 
     //$conn->close();
@@ -95,7 +95,7 @@
         die("Connection failed: " . $conn->connect_error);
     } 
 
-    $sql = "SELECT * FROM candidatos where estado = 'A' order by idcandidatos";
+    $sql = "SELECT * FROM candidatos where estado = 'A' and partidopolitico is not null order by idcandidatos";
     $result = $conn->query($sql);
 
     //$conn->close();
@@ -113,7 +113,7 @@
             <div class="row">
                 <?php $firstTime = false; ?>
                 <?php while($row = $result->fetch_assoc()) { ?>
-                    <div class="col-lg-2" style="width: 14%">
+                    <div class="col-lg-2 col-sm-3 col-xs-6">
                         <?php $rutaImagen = Yii::app()->baseUrl."/images/".$row['rutaimagen']; ?>
                         <img src="<?php echo $rutaImagen;?>" class="img-circle" alt="" style="width: 100%; height: 100%">
                         
@@ -126,9 +126,13 @@
                         
                         <?php while($rowP = $resultP->fetch_assoc()) { ?>                           
                         
-                            <?php if(!$firstTime) { ?> 
-                                <h5><?php echo $rowP['nombrecategoria'];?></h5>
-                            <?php } else { echo "<h5>&nbsp;</h5>"; } ?>
+                            <div class="col-lg-12">
+                                <?php if(!$firstTime) { ?> 
+                                <label class="visible-lg"><?php echo $rowP['nombrecategoria'];?></label>
+                                <label class="visible-md visible-sm visible-xs"><?php echo $rowP['nombrecategoria'];?></label>
+                                <?php } else {?> <label class="visible-lg">&nbsp;</label> <label class="visible-md visible-sm visible-xs"><?php echo $rowP['nombrecategoria'];?></label> <?php } ?>
+                            </div>
+                            
                                 <div class="col-lg-12" style="border-left: 4px solid #2c3e50;">                            
                                     <p style="font-size: 130%"><?php echo $rowP['descripcion'];?></p>
                                 </div>

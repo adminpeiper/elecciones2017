@@ -4,8 +4,7 @@
                 <div class="row">
                     <div class="footer-col col-md-4">
                         <h3>Peiper Code</h3>
-                        <p>3481 Melrose Place
-                        <br>Beverly Hills, CA 90210</p>
+                        <p>Guayaquil, Ecuador                        
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>Visitanos</h3>
@@ -23,7 +22,7 @@
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>Acerca de Peiper Code</h3>
-                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                        <p>Grupo freelance que ofrece software de calidad y ágil.</p>
                     </div>
                 </div>
             </div>
