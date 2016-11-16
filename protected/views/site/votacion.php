@@ -41,9 +41,9 @@
         </div>
         <div class="row">         
             <div id="info" class="alert-warning">
-                <p>Los resultados presentados a continuación son datos de las votaciones hechos anteriormente por personas que han
+                <p style="padding: 1% 0% 0% 1%">Los resultados presentados a continuación son datos de las votaciones hechos anteriormente por personas que han
                 visitado nuesta página, no están ligados de ninguna forma con la CNE y/o encuentas de otras empresas.</p>
-                <p>Al momento de votar <b>no guardamos</b> tu número de telefóno, correo, dirección IP o ningún otro tipo de información, 
+                <p style="padding: 1% 0% 1% 1%">Al momento de votar <b>no guardamos</b> tu número de telefóno, correo, dirección IP o ningún otro tipo de información, 
                 es totalmente anónimo.</p>
             </div>
 
@@ -54,7 +54,7 @@
                 //$username = "adminE17";
                 $servername = "localhost";
                 $username = "root";
-                $password = "admin2017";
+                $password = "root";
                 $dbname = "elecciones2017pc";
 
                 // Create connection
@@ -82,8 +82,8 @@
 
                 <div class="col-lg-12"> 
                     <div id="votado" class="alert-success">
-                        <p>Gracias por votar, por favor no te olvides de compartir.</p>
-                        <h3>“Un pueblo que lee es más libre y más difícil de engañar." - José Luis Corral </h3>
+                        <p style="padding: 1% 0% 0% 1%">Gracias por votar, por favor no te olvides de compartir.</p>
+                        <h3 style="padding: 0% 0% 1% 1%">“Un pueblo que lee es más libre y más difícil de engañar." - José Luis Corral </h3>
                     </div>
                 </div>
                 
@@ -106,7 +106,7 @@
                             $porcentajeVoto = number_format($porcentajeVoto,0,'','');
                     ?>
 
-                        <div class="col-sm-3 portfolio-item">               
+                        <div class="col-lg-3 col-sm-3 col-xs-6">
                             <h5><?php echo $rowCD['nombrecandidatos'];?></h5>
                             <div class="c100 p<?php echo $porcentajeVoto?>">                            
                                 <span><?php echo $porcentajeVoto.'%'; ?></span>                        

@@ -75,7 +75,7 @@ class SiteController extends Controller
         
         public function actionDisclaimer()
 	{
-			$this->pageTitle = "Elecciones 2017 - Disclaimer";
+            $this->pageTitle = "Elecciones 2017 - Disclaimer";
             $this->render('disclaimer');
 	}
 
@@ -134,7 +134,7 @@ class SiteController extends Controller
             {
                 $servername = "localhost";
                 $username = "root";
-                $password = "admin2017";
+                $password = "root";
                 $dbname = "elecciones2017pc";
 
                 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -153,4 +153,10 @@ class SiteController extends Controller
                 $conn->close();                                
             } catch (Exception $ex) { throw $ex; }            
         }
+        
+        public function actionLugarVotacion()
+	{
+            $this->pageTitle = "Elecciones 2017 - ¿Dónde voto?";
+            $this->render('lugarVotacion');
+	}
 }

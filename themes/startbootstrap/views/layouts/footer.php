@@ -46,11 +46,11 @@
     </div>
     
     <?php 
-        //$servername = "localhost:3306";
-        //$username = "adminE17";
         $servername = "localhost:3306";
         $username = "root";
-        $password = "admin2017";
+        //$servername = "localhost:3306";
+        //$username = "root";
+        $password = "root";
         $dbname = "elecciones2017pc";
     
         // Create connection

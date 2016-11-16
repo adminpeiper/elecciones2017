@@ -33,11 +33,14 @@
                     <a href=<?php echo Yii::app()->request->baseUrl."/index.php?r=site/votacion";?>>Votación</a>
                 </li>
                 <li>
+                    <a href=<?php echo Yii::app()->request->baseUrl."/index.php?r=site/lugarVotacion";?>>¿Dónde voto?</a>
+                </li>
+                <li>
                     <a href=<?php echo Yii::app()->request->baseUrl."/index.php?r=site/disclaimer";?>>Disclaimer</a>
                 </li>
                 <li>
                     <a href=<?php echo Yii::app()->request->baseUrl."/index.php?r=site/contact";?>>Contacto</a>
-                </li>
+                </li>                
             </ul>
         </div>
         <!-- /.navbar-collapse -->
