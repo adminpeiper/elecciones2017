@@ -50,7 +50,7 @@
         $username = "root";
         //$servername = "localhost:3306";
         //$username = "root";
-        $password = "root";
+        $password = "admin2017";
         $dbname = "elecciones2017pc";
     
         // Create connection
@@ -60,7 +60,7 @@
             die("Connection failed: " . $conn->connect_error);
         } 
 
-        $sql = "SELECT * FROM candidatos";
+        $sql = "SELECT * FROM candidatos where estado = 'A'";
         $result = $conn->query($sql);
     ?>
     
@@ -79,28 +79,30 @@
                     <div class="row">
                         <div class="col-lg-8 col-lg-offset-2">
                             <div class="modal-body">
-                                <h2><?php echo $model['nombrecandidatos'];?></h2>
-                                <hr class="fa fa-fw fa-minus">
+                                <h2><?php echo $model['nombrecandidatos'];?></h2> <br>                                
                                 <?php $rutaImagen = Yii::app()->baseUrl."/images/".$model['rutaimagen']; ?>
                                 <img src="<?php echo $rutaImagen; ?>" class="img-responsive img-centered" alt="">
-                                <h3>Redes Sociales</h3>
-                                <ul class="list-inline">
-                                    <?php if(!empty($model['usuariotwitter'])){?>
-                                        <li>
-                                            <a href="https://www.facebook.com/<?php echo $model['usuariotwitter'];?>" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
-                                        </li>
-                                    <?php }?>
-                                    <?php if(!empty($model->usuariofacebook)){?>
-                                        <li>
-                                            <a href="https://twitter.com/<?php echo $model['usuariofacebook'];?>" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-                                        </li>                            
-                                    <?php }?>
-                                    <?php if(!empty($model->paginaweb)){?>
-                                        <li>
-                                            <a href="<?php echo $model['paginaweb'];?>" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-link"></i></a>
-                                        </li>                            
-                                    <?php }?>
-                                </ul>
+                                <h4>Partido Político: &nbsp;</h4> <?php echo $model['partidopolitico'];?>
+                                <h4>Redes Sociales</h4>
+                                
+                                    <ul class="list-inline">
+                                        <?php if(!empty($model['usuariofacebook'])){?>
+                                            <li>
+                                                <a href="https://www.facebook.com/<?php echo $model['usuariofacebook'];?>" target="_blank" class="btn-social"><i class="fa fa-fw fa-facebook"></i></a>
+                                            </li>
+                                        <?php }?>
+                                        <?php if(!empty($model['usuariotwitter'])){?>
+                                            <li>
+                                                <a href="https://twitter.com/<?php echo $model['usuariotwitter'];?>" target="_blank" class="btn-social"><i class="fa fa-fw fa-twitter"></i></a>
+                                            </li>                            
+                                        <?php }?>
+                                        <?php if(!empty($model['paginaweb'])){?>
+                                            <li>
+                                                <a href="<?php echo $model['paginaweb'];?>" target="_blank" class="btn-social"><i class="fa fa-fw fa-link"></i></a>
+                                            </li>                            
+                                        <?php }?>
+                                    </ul>
+                                                          
                                 <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Cerrar</button>
                             </div>
                         </div>

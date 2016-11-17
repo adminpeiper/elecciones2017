@@ -132,9 +132,9 @@ class SiteController extends Controller
         {
             try 
             {
-                $servername = "localhost";
+                $servername = "localhost:3306";
                 $username = "root";
-                $password = "root";
+                $password = "admin2017";
                 $dbname = "elecciones2017pc";
 
                 $conn = new mysqli($servername, $username, $password, $dbname);
