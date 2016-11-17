@@ -28,6 +28,7 @@
 
 </style>
 
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <link rel="stylesheet" href="css/circle/css/circle.css">
 
 <br></br>
@@ -145,6 +146,13 @@
 
                         <?php } ?>
                         <br>
+                        
+                        <div class="row">
+                            <div class="col-lg-12 col-sm-12 col-xs-12">
+                                <div class="g-recaptcha" data-sitekey="6LdIIQwUAAAAAJMGNe_N7Yp_-xQ0_S5N4F7dI1vF"></div>
+                            </div>
+                        </div>
+                        
                         <div class="row">
                             <div class="form-group col-xs-12">
                                 <?php echo CHtml::submitButton('Votar',array("submit"=>array("site/Votacion"),"class"=>"btn btn-success btn-lg")); ?>                                                    
