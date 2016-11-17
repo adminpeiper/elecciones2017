@@ -47,9 +47,7 @@
     
     <?php 
         $servername = "localhost:3306";
-        $username = "root";
-        //$servername = "localhost:3306";
-        //$username = "root";
+        $username = "adminE17";
         $password = "admin2017";
         $dbname = "elecciones2017pc";
     

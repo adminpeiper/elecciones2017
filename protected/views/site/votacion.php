@@ -40,7 +40,12 @@
                 <h3 class="fa fa-fw fa-minus"/>
             </div>            
         </div>
-        <div class="row">         
+        <div class="row">
+            <?php 
+                foreach(Yii::app()->user->getFlashes() as $key => $message) {     
+                    echo '<div id="error" class="alert-' . $key . '">' . $message . "</div>\n";  
+                }
+            ?>
             <div id="info" class="alert-warning">
                 <p style="padding: 1% 0% 0% 1%">Los resultados presentados a continuación son datos de las votaciones hechos anteriormente por personas que han
                 visitado nuesta página, no están ligados de ninguna forma con la CNE y/o encuentas de otras empresas.</p>
@@ -54,7 +59,7 @@
                 //$servername = "localhost:3306";
                 //$username = "adminE17";
                 $servername = "localhost:3306";
-                $username = "root";
+                $username = "adminE17";
                 $password = "admin2017";
                 $dbname = "elecciones2017pc";
 
@@ -145,7 +150,6 @@
                             </div>
 
                         <?php } ?>
-                        <br>
                         
                         <div class="row">
                             <div class="col-lg-12 col-sm-12 col-xs-12">
@@ -153,6 +157,8 @@
                             </div>
                         </div>
                         
+                        <br>
+                    
                         <div class="row">
                             <div class="form-group col-xs-12">
                                 <?php echo CHtml::submitButton('Votar',array("submit"=>array("site/Votacion"),"class"=>"btn btn-success btn-lg")); ?>                                                    

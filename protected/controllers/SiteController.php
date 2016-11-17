@@ -58,16 +58,37 @@ class SiteController extends Controller
 			$model->attributes=$_POST['ContactForm'];
 			if($model->validate())
 			{
-				$name='=?UTF-8?B?'.base64_encode($model->name).'?=';
-				$subject='=?UTF-8?B?'.base64_encode($model->subject).'?=';
-				$headers="From: $name <{$model->email}>\r\n".
-					"Reply-To: {$model->email}\r\n".
-					"MIME-Version: 1.0\r\n".
-					"Content-Type: text/plain; charset=UTF-8";
+                            $servername = "localhost:3306";
+                            $username = "adminE17";
+                            $password = "admin2017";
+                            $dbname = "elecciones2017pc";
 
-				mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
-				Yii::app()->user->setFlash('contact','Gracias por contactarse con nosotros. Le responderemos lo más rápido que podamos.');
-				$this->refresh();
+                            $conn = new mysqli($servername, $username, $password, $dbname);
+
+                            if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                            } 
+
+                            $sql = "INSERT INTO correo (nombre, correo, asunto, mensaje, estado)
+                            VALUES ('".$model->name."', '".$model->email."', '".$model->subject."', '".$model->body."', 'A')";
+
+                            if (!$conn->query($sql)) {
+                                throw $conn->error;
+                            }
+
+                            $conn->close();
+                
+                            /*$name='=?UTF-8?B?'.base64_encode($model->name).'?=';
+                            $subject='=?UTF-8?B?'.base64_encode($model->subject).'?=';
+                            $headers="From: $name <{$model->email}>\r\n".
+                                    "Reply-To: {$model->email}\r\n".
+                                    "MIME-Version: 1.0\r\n".
+                                    "Content-Type: text/plain; charset=UTF-8";
+
+                            mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);*/
+                            Yii::app()->user->setFlash('contact','Gracias por contactarse con nosotros. Le responderemos lo más rápido posible.');
+                            //$this->refresh();
+                            $model = new ContactForm;
 			}
 		}
 		$this->render('contact',array('model'=>$model));
@@ -114,16 +135,30 @@ class SiteController extends Controller
 		$this->redirect(Yii::app()->homeUrl);
 	}
         
-    public function actionVotacion()
+        public function actionVotacion()
 	{
-		$votado = false;
-            if(isset($_POST['radio'])) {
-                $voto = !empty($_POST['radio']) ? 0 : $_POST['radio'];
-                
-                $this->guardarVotacion($_POST['radio']);
-                $votado = true;
-            }
+            $votado = false;
             
+            if(isset($_POST['g-recaptcha-response']))
+            {
+                if(!empty($_POST['g-recaptcha-response']))
+                {
+                    //if($_POST['g-recaptcha-response'] == '6LdIIQwUAAAAAD0r-fb1u6l-q61yd7TgBQtNRej-')
+                    //{
+                        if(isset($_POST['radio'])) {
+                            $voto = !empty($_POST['radio']) ? 0 : $_POST['radio'];
+
+                            $this->guardarVotacion($_POST['radio']);
+                            $votado = true;
+                        }
+                    /*} else {
+                        Yii::app()->user->setFlash('danger', '<p style="padding: 1% 0% 1% 1%"> Error con el reCAPTCHA. </p>');
+                    }*/
+                } else {
+                    Yii::app()->user->setFlash('danger', '<p style="padding: 1% 0% 1% 1%"> Falta seleccionar el reCAPTCHA. </p>');
+                }
+            }            
+                
             $this->pageTitle = "Elecciones 2017 - Votación";
             $this->render('votacion',array('votado'=> $votado));
 	}
@@ -133,7 +168,7 @@ class SiteController extends Controller
             try 
             {
                 $servername = "localhost:3306";
-                $username = "root";
+                $username = "adminE17";
                 $password = "admin2017";
                 $dbname = "elecciones2017pc";
 
