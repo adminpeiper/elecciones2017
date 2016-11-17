@@ -11,17 +11,17 @@
         <div class="row">            
             <div class="col-lg-12">
                 <p>
-                    Peiper Code cree firmente el libertad de expresión y facilidad de obtener información que la tecnología nos ha dado, 
-                    por lo tanto hemos creado gratuitamente este sitio web para brindarle a la sociedad y a los votantes los datos que necesitan para 
-                    que pueda elegir con conocimientos y sabiduría al próximo presidente(a) del país.
+                    Peiper Code cree firmemente en la libertad de expresión y facilidad de acceso a la información que la tecnología ha brindado, 
+                    por lo tanto se ha creado gratuitamente este sitio web para otorgarle a los ecuatorianos, los datos que necesitan para que puedan 
+                    elegir con conocimientos y sabiduría al próximo presidente(a) del país.
                 </p>    
                 <p>
-                    Peiper Code no está ligado de ninguna forma o fondo con partidos políticos, tampoco ha 
-                    recibido ningún tipo de compensación económica o de otra naturaleza por parte de los candidatos y/o asociaciones.
+                    Peiper Code no está ligado de ninguna forma o fondo con partidos políticos, tampoco ha recibido ningún tipo de compensación económica 
+                    o de otra naturaleza por parte de los candidatos y/o asociaciones.
                 </p>
                 <p>
-                    La información que se muestra la página de inicio son las actuales propuestas presidenciales de los candidatos, dicha 
-                    información ha sido investigada y verificada por el personal de Peiper Code. Si existe algún error por favor hazlo saber.
+                    La información que se muestra en el sitio son las propuestas actuales presidenciales de los candidatos, dicha información ha sido recolectada 
+                    y verificada por el personal de Peiper Code. Si existe alguna observación, cambio o sugerencia por favor escribe a <a href="mailto:contacto@peipercode.com" target="_top">contacto@peipercode.com</a>
                 </p> 
                 <br>
                 <p>
