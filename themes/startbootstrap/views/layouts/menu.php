@@ -36,7 +36,7 @@
                     <a href=<?php echo Yii::app()->request->baseUrl."/index.php?r=site/lugarVotacion";?>>¿Dónde voto?</a>
                 </li>
                 <li>
-                    <a href=<?php echo Yii::app()->request->baseUrl."/index.php?r=site/disclaimer";?>>Disclaimer</a>
+                    <a href=<?php echo Yii::app()->request->baseUrl."/index.php?r=site/disclaimer";?>>Importante</a>
                 </li>
                 <li>
                     <a href=<?php echo Yii::app()->request->baseUrl."/index.php?r=site/contact";?>>Contacto</a>

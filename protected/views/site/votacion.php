@@ -59,8 +59,8 @@
                 //$servername = "localhost:3306";
                 //$username = "adminE17";
                 $servername = "localhost:3306";
-                $username = "adminE17";
-                $password = "admin2017";
+                $username = "root";
+                $password = "root";
                 $dbname = "elecciones2017pc";
 
                 // Create connection
@@ -164,6 +164,8 @@
                                 <?php echo CHtml::submitButton('Votar',array("submit"=>array("site/Votacion"),"class"=>"btn btn-success btn-lg")); ?>                                                    
                             </div>
                         </div>
+                        
+                        <?php $this->renderPartial('mapa'); ?>
                     <?php $this->endWidget(); ?>
                 </div>
             <?php } ?>
