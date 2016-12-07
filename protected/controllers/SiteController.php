@@ -59,8 +59,8 @@ class SiteController extends Controller
 			if($model->validate())
 			{
                             $servername = "localhost:3306";
-                            $username = "adminE17";
-                            $password = "admin2017";
+                            $username = "root";
+                            $password = "root";
                             $dbname = "elecciones2017pc";
 
                             $conn = new mysqli($servername, $username, $password, $dbname);
@@ -139,26 +139,27 @@ class SiteController extends Controller
 	{
             $votado = false;
             
-            if(isset($_POST['g-recaptcha-response']))
-            {
+            /*if(isset($_POST['g-recaptcha-response']))
+            {*/
                 if(!empty($_POST['g-recaptcha-response']))
                 {
-                    //if($_POST['g-recaptcha-response'] == '6LdIIQwUAAAAAD0r-fb1u6l-q61yd7TgBQtNRej-')
-                    //{
+                    $secret = '6LdIIQwUAAAAAD0r-fb1u6l-q61yd7TgBQtNRej-';                    
+                    $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']);
+                    $responseData = json_decode($verifyResponse);
+                    if($responseData->success){
                         if(isset($_POST['radio'])) {
                             $voto = !empty($_POST['radio']) ? 0 : $_POST['radio'];
 
                             $this->guardarVotacion($_POST['radio']);
                             $votado = true;
                         }
-                    /*} else {
+                    } else {
                         Yii::app()->user->setFlash('danger', '<p style="padding: 1% 0% 1% 1%"> Error con el reCAPTCHA. </p>');
-                    }*/
+                    }                   
                 } else {
                     Yii::app()->user->setFlash('danger', '<p style="padding: 1% 0% 1% 1%"> Falta seleccionar el reCAPTCHA. </p>');
                 }
-            }            
-                
+            //} 
             $this->pageTitle = "Elecciones 2017 - Votación";
             $this->render('votacion',array('votado'=> $votado));
 	}
@@ -168,8 +169,8 @@ class SiteController extends Controller
             try 
             {
                 $servername = "localhost:3306";
-                $username = "adminE17";
-                $password = "admin2017";
+                $username = "root";
+                $password = "root";
                 $dbname = "elecciones2017pc";
 
                 $conn = new mysqli($servername, $username, $password, $dbname);
