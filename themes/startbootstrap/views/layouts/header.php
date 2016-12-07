@@ -12,12 +12,21 @@
     <meta name="author" content="">
     <meta name="image" content=<?php echo $rutaImagenHeader;?>>
 
-    <meta property="og:url"           content="http://elecciones2017.peipercode.com" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Elecciones 2017" />
-    <meta property="og:description"   content="Vota con conocimiento, vota inteligentemente." />
+    <meta property="og:site_name"     content="Elecciones 2017" />
     <meta property="og:image"         content= <?php echo $rutaImagenHeader;?> />
-
+    <meta property="og:description"   content="Vota con conocimiento, vota inteligentemente." />
+    <meta property="og:url"           content="http://elecciones2017.peipercode.com" />
+    <meta property="og:title"         content="Elecciones 2017" />
+    <meta property="og:type"          content="website" />
+    
+    <meta name="twitter:url"           content="http://elecciones2017.peipercode.com" />
+    <meta name="twitter:site"          content="@peipercode" />
+    <meta name="twitter:creator"       content="@peipercode" />
+    <meta name="twitter:image:src"     content= <?php echo $rutaImagenHeader;?> />
+    <meta name="twitter:card"          content="summary" />
+    <meta name="twitter:title"         content="Elecciones 2017" />    
+    <meta name="twitter:description"   content="Vota con conocimiento, vota inteligentemente." />
+    
     <title><?php echo CHtml::encode($this->pageTitle);?></title>
     <?php                            
       $baseUrl = Yii::app()->theme->baseUrl; 

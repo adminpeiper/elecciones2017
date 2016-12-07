@@ -165,7 +165,7 @@
                             </div>
                         </div>
                         
-                        <?php $this->renderPartial('mapa'); ?>
+                        <?php //$this->renderPartial('mapa'); ?>
                     <?php $this->endWidget(); ?>
                 </div>
             <?php } ?>
