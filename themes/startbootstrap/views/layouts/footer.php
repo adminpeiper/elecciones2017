@@ -47,9 +47,9 @@
     
     <?php 
         $servername = "localhost:3306";
-        $username = "adminE17";
-        $password = "admin2017";
-        $dbname = "elecciones2017pc";
+        $username = "root";
+    $password = "root12345";
+    $dbname = "elecciones2017";
     
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
@@ -111,6 +111,53 @@
     
     <?php }?>
 
+     <?php 
+        $sql = "SELECT * FROM categorias where estado = 'A' order by idcategorias";
+        $result = $conn->query($sql);
+    ?>
+    
+    <?php while($model = $result->fetch_assoc()) { ?>
+    
+        <div class="portfolio-modal modal fade" id="portfolioModalCategoria<?php echo $model['idcategorias'];?>" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <h2><?php echo $model['nombrecategoria'];?></h2> <br>  
+                        <div class="col-lg-9 col-lg-offset-2">
+                            <div class="modal-body">
+                                <?php $sqlP = "select pro.idpropuestas, cat.idcategorias, cat.nombrecategoria, pro.descripcion, can.rutaimagen
+                                from propuestas pro join categorias cat on pro.idcategoria = cat.idcategorias
+                                join candidatos can on pro.idcandidato = can.idcandidatos
+                                where pro.estado = 'A' and cat.idcategorias =".$model['idcategorias']." and cat.estado = 'A' order by pro.idcandidato";
+                                      $resultP = $conn->query($sqlP);
+                                ?>
+                                <?php $rowNumbers = 0; ?>
+                                <?php while($row = $resultP->fetch_assoc()) { ?>
+                                        <div class="col-lg-3 col-sm-3 col-xs-6">
+                                            <?php $rutaImagen = Yii::app()->baseUrl."/images/".$row['rutaimagen']; ?>
+                                            <img src="<?php echo $rutaImagen;?>" class="img-circle" alt="" style="width: 50%; height: 50%">
+                                            <div class="col-lg-10">
+                                                <p style="font-size: 130%"><?php echo $row['descripcion'];?></p>
+                                            </div>                                        
+                                        </div>
+                                <?php }?>
+                                                          
+                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    <?php }?>
+    
 <!-- jQuery -->
     <script src="<?php echo $baseUrl;?>/vendor/jquery/jquery.min.js"></script>
 

@@ -60,8 +60,8 @@
                 //$username = "adminE17";
                 $servername = "localhost:3306";
                 $username = "root";
-                $password = "root";
-                $dbname = "elecciones2017pc";
+    $password = "root12345";
+    $dbname = "elecciones2017";
 
                 // Create connection
                 $conn = new mysqli($servername, $username, $password, $dbname);
