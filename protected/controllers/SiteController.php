@@ -59,15 +59,15 @@ class SiteController extends Controller
 			if($model->validate())
 			{
                             $servername = "localhost:3306";
-                            $username = "root";
-    $password = "root12345";
-    $dbname = "elecciones2017";
+                            $username = "adminE17";
+						    $password = "admin2017"
+						    $dbname = "elecciones2017";
 
                             $conn = new mysqli($servername, $username, $password, $dbname);
 
                             if ($conn->connect_error) {
                                 die("Connection failed: " . $conn->connect_error);
-                            } 
+                            }
 
                             $sql = "INSERT INTO correo (nombre, correo, asunto, mensaje, estado)
                             VALUES ('".$model->name."', '".$model->email."', '".$model->subject."', '".$model->body."', 'A')";
@@ -77,7 +77,7 @@ class SiteController extends Controller
                             }
 
                             $conn->close();
-                
+
                             /*$name='=?UTF-8?B?'.base64_encode($model->name).'?=';
                             $subject='=?UTF-8?B?'.base64_encode($model->subject).'?=';
                             $headers="From: $name <{$model->email}>\r\n".
@@ -93,10 +93,10 @@ class SiteController extends Controller
 		}
 		$this->render('contact',array('model'=>$model));
 	}
-        
+
         public function actionDisclaimer()
 	{
-            $this->pageTitle = "Elecciones 2017 - Disclaimer";
+            $this->pageTitle = "Elecciones 2017 - Importante";
             $this->render('disclaimer');
 	}
 
@@ -134,16 +134,16 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
-        
+
         public function actionVotacion()
 	{
             $votado = false;
-            
+
             /*if(isset($_POST['g-recaptcha-response']))
             {*/
                 if(!empty($_POST['g-recaptcha-response']))
                 {
-                    $secret = '6LdIIQwUAAAAAD0r-fb1u6l-q61yd7TgBQtNRej-';                    
+                    $secret = '6LdIIQwUAAAAAD0r-fb1u6l-q61yd7TgBQtNRej-';
                     $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']);
                     $responseData = json_decode($verifyResponse);
                     if($responseData->success){
@@ -154,42 +154,42 @@ class SiteController extends Controller
                             $votado = true;
                         }
                     } else {
-                        Yii::app()->user->setFlash('danger', '<p style="padding: 1% 0% 1% 1%"> Error con el reCAPTCHA. </p>');
-                    }                   
-                } else {
+                        Yii::app()->user->setFlash('danger', '<p style="padding: 1% 0% 1% 1%"> Error con el reCAPTCHA. Recuerde seleccionarlo el reCAPTCHA. </p>');
+                    }
+                } /*else {
                     Yii::app()->user->setFlash('danger', '<p style="padding: 1% 0% 1% 1%"> Falta seleccionar el reCAPTCHA. </p>');
-                }
-            //} 
+                }*/
+            //}
             $this->pageTitle = "Elecciones 2017 - Votación";
             $this->render('votacion',array('votado'=> $votado));
 	}
-        
+
         public function guardarVotacion($idCandidato)
         {
-            try 
+            try
             {
                 $servername = "localhost:3306";
-                $username = "root";
-    $password = "root12345";
+                $username = "adminE17";
+    $password = "admin2017"
     $dbname = "elecciones2017";
 
                 $conn = new mysqli($servername, $username, $password, $dbname);
 
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
-                } 
+                }
 
                 $sql = "INSERT INTO votacion (idcandidato, estado)
                 VALUES (".$idCandidato.", 'A')";
-                
+
                 if (!$conn->query($sql)) {
                     throw $conn->error;
                 }
 
-                $conn->close();                                
-            } catch (Exception $ex) { throw $ex; }            
+                $conn->close();
+            } catch (Exception $ex) { throw $ex; }
         }
-        
+
         public function actionLugarVotacion()
 	{
             $this->pageTitle = "Elecciones 2017 - ¿Dónde voto?";

@@ -1,10 +1,10 @@
 <?php    
     $servername = "localhost:3306";
     /*$username = "adminE17";
-    $password = "admin2017";
+    $password = "admin2017"
     $dbname = "elecciones2017pc";*/
-    $username = "root";
-    $password = "root12345";
+    $username = "adminE17";
+    $password = "admin2017"
     $dbname = "elecciones2017";
 
     // Create connection
@@ -96,8 +96,8 @@
     //$servername = "localhost:3306";
     //$username = "adminE17";
     $servername = "localhost:3306";
-    $username = "root";
-    $password = "root12345";
+    $username = "adminE17";
+    $password = "admin2017"
     $dbname = "elecciones2017";
 
     // Create connection

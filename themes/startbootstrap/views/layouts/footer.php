@@ -3,8 +3,8 @@
             <div class="container">
                 <div class="row">
                     <div class="footer-col col-md-4">
-                        <h3>Peiper Code</h3>
-                        <p>Guayaquil, Ecuador                        
+                        <h3>Peiper CØde</h3>
+                        <p>Guayaquil, Ecuador
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>Visitanos</h3>
@@ -14,14 +14,14 @@
                             </li>
                             <li>
                                 <a href="https://twitter.com/peipercode" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-                            </li>                            
+                            </li>
                             <li>
                                 <a href="http://www.peipercode.com" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-link"></i></a>
-                            </li>                            
+                            </li>
                         </ul>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>Acerca de Peiper Code</h3>
+                        <h3>Acerca de Peiper CØde</h3>
                         <p>Grupo freelance que ofrece software de calidad y ágil.</p>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Peiper Code <?php echo date('Y'); ?>
+                        Copyright &copy; Peiper Cøde <?php echo date('Y'); ?>
                     </div>
                 </div>
             </div>
@@ -44,27 +44,27 @@
             <i class="fa fa-chevron-up"></i>
         </a>
     </div>
-    
-    <?php 
+
+    <?php
         $servername = "localhost:3306";
-        $username = "root";
-    $password = "root12345";
+        $username = "adminE17";
+    $password = "admin2017"
     $dbname = "elecciones2017";
-    
+
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
         // Check connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
-        } 
+        }
 
         $sql = "SELECT * FROM candidatos where estado = 'A'";
         $result = $conn->query($sql);
     ?>
-    
+
     <?php //foreach($modelCantidatos->findAll() as $model) {?>
     <?php while($model = $result->fetch_assoc()) { ?>
-    
+
         <div class="portfolio-modal modal fade" id="portfolioModal<?php echo $model['idcandidatos'];?>" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-content">
                 <div class="close-modal" data-dismiss="modal">
@@ -77,12 +77,12 @@
                     <div class="row">
                         <div class="col-lg-8 col-lg-offset-2">
                             <div class="modal-body">
-                                <h2><?php echo $model['nombrecandidatos'];?></h2> <br>                                
+                                <h2><?php echo $model['nombrecandidatos'];?></h2> <br>
                                 <?php $rutaImagen = Yii::app()->baseUrl."/images/".$model['rutaimagen']; ?>
                                 <img src="<?php echo $rutaImagen; ?>" class="img-responsive img-centered" alt="">
                                 <h4>Partido Político: &nbsp;</h4> <?php echo $model['partidopolitico'];?>
                                 <h4>Redes Sociales</h4>
-                                
+
                                     <ul class="list-inline">
                                         <?php if(!empty($model['usuariofacebook'])){?>
                                             <li>
@@ -92,15 +92,15 @@
                                         <?php if(!empty($model['usuariotwitter'])){?>
                                             <li>
                                                 <a href="https://twitter.com/<?php echo $model['usuariotwitter'];?>" target="_blank" class="btn-social"><i class="fa fa-fw fa-twitter"></i></a>
-                                            </li>                            
+                                            </li>
                                         <?php }?>
                                         <?php if(!empty($model['paginaweb'])){?>
                                             <li>
                                                 <a href="<?php echo $model['paginaweb'];?>" target="_blank" class="btn-social"><i class="fa fa-fw fa-link"></i></a>
-                                            </li>                            
+                                            </li>
                                         <?php }?>
                                     </ul>
-                                                          
+
                                 <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Cerrar</button>
                             </div>
                         </div>
@@ -108,16 +108,16 @@
                 </div>
             </div>
         </div>
-    
+
     <?php }?>
 
-     <?php 
+     <?php
         $sql = "SELECT * FROM categorias where estado = 'A' order by idcategorias";
         $result = $conn->query($sql);
     ?>
-    
+
     <?php while($model = $result->fetch_assoc()) { ?>
-    
+
         <div class="portfolio-modal modal fade" id="portfolioModalCategoria<?php echo $model['idcategorias'];?>" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-content">
                 <div class="close-modal" data-dismiss="modal">
@@ -128,7 +128,7 @@
                 </div>
                 <div class="container">
                     <div class="row">
-                        <h2><?php echo $model['nombrecategoria'];?></h2> <br>  
+                        <h2><?php echo $model['nombrecategoria'];?></h2> <br>
                         <div class="col-lg-9 col-lg-offset-2">
                             <div class="modal-body">
                                 <?php $sqlP = "select pro.idpropuestas, cat.idcategorias, cat.nombrecategoria, pro.descripcion, can.rutaimagen
@@ -142,12 +142,19 @@
                                         <div class="col-lg-3 col-sm-3 col-xs-6">
                                             <?php $rutaImagen = Yii::app()->baseUrl."/images/".$row['rutaimagen']; ?>
                                             <img src="<?php echo $rutaImagen;?>" class="img-circle" alt="" style="width: 50%; height: 50%">
-                                            <div class="col-lg-10">
-                                                <p style="font-size: 130%"><?php echo $row['descripcion'];?></p>
-                                            </div>                                        
+                                            <div class="col-lg-12">
+                                                <?php
+                                                  $vocales = array("á", "é", "í", "ó", "ú");
+                                                  $vocalesTilde   = array("&aacute", "&eacute", "&iacute", "&oacute", "&uacute");
+
+                                                  $descripcion = str_replace($vocales, $vocalesTilde, $row['descripcion']);
+                                                ?>
+
+                                                <p style="font-size: 130%"><?php echo $descripcion;?></p>
+                                            </div>
                                         </div>
                                 <?php }?>
-                                                          
+
                                 <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Cerrar</button>
                             </div>
                         </div>
@@ -155,9 +162,9 @@
                 </div>
             </div>
         </div>
-    
+
     <?php }?>
-    
+
 <!-- jQuery -->
     <script src="<?php echo $baseUrl;?>/vendor/jquery/jquery.min.js"></script>
 
