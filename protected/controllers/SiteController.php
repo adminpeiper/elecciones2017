@@ -60,7 +60,7 @@ class SiteController extends Controller
 			{
                             $servername = "localhost:3306";
                             $username = "adminE17";
-						    $password = "admin2017"
+						    $password = "admin2017";
 						    $dbname = "elecciones2017";
 
                             $conn = new mysqli($servername, $username, $password, $dbname);
@@ -170,7 +170,7 @@ class SiteController extends Controller
             {
                 $servername = "localhost:3306";
                 $username = "adminE17";
-    $password = "admin2017"
+    $password = "admin2017";
     $dbname = "elecciones2017";
 
                 $conn = new mysqli($servername, $username, $password, $dbname);

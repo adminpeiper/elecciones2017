@@ -48,7 +48,7 @@
     <?php
         $servername = "localhost:3306";
         $username = "adminE17";
-    $password = "admin2017"
+    $password = "admin2017";
     $dbname = "elecciones2017";
 
         // Create connection
@@ -100,7 +100,10 @@
                                             </li>
                                         <?php }?>
                                     </ul>
-
+                                    <?php if(!empty($model['documento'])) {?>
+                                      <?php $rutaDocumento = Yii::app()->baseUrl."/propuestas/".$model['documento']; ?>
+                                      <?php echo CHtml::link('<h3>Documento PDF</h3>',$rutaDocumento, array('target'=>'_blank')); ?>
+                                    <?php }?>
                                 <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Cerrar</button>
                             </div>
                         </div>
@@ -143,14 +146,7 @@
                                             <?php $rutaImagen = Yii::app()->baseUrl."/images/".$row['rutaimagen']; ?>
                                             <img src="<?php echo $rutaImagen;?>" class="img-circle" alt="" style="width: 50%; height: 50%">
                                             <div class="col-lg-12">
-                                                <?php
-                                                  $vocales = array("á", "é", "í", "ó", "ú");
-                                                  $vocalesTilde   = array("&aacute", "&eacute", "&iacute", "&oacute", "&uacute");
-
-                                                  $descripcion = str_replace($vocales, $vocalesTilde, $row['descripcion']);
-                                                ?>
-
-                                                <p style="font-size: 130%"><?php echo $descripcion;?></p>
+                                                <p style="font-size: 130%"><?php echo $row['descripcion'];?></p>
                                             </div>
                                         </div>
                                 <?php }?>

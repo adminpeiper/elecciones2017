@@ -1,7 +1,7 @@
 <?php
     $servername = "localhost:3306";
     $username = "adminE17";
-    $password = "admin2017"
+    $password = "admin2017";
     $dbname = "elecciones2017";
     /*$username = "adminE17";
     $password = "admin2017"
@@ -54,6 +54,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Candidatos</h2>
+                    <h3>(Puedes descargar el documento en pdf de las propuestas de los candidatos.)</h3>
                     <h3 class="fa fa-fw fa-minus"/>
                 </div>
             </div>
