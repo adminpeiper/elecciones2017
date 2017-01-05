@@ -3,7 +3,7 @@
             <div class="container">
                 <div class="row">
                     <div class="footer-col col-md-4">
-                        <h3>Peiper CØde</h3>
+                        <h3>Peiper Code</h3>
                         <p>Guayaquil, Ecuador
                     </div>
                     <div class="footer-col col-md-4">
@@ -21,7 +21,7 @@
                         </ul>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>Acerca de Peiper CØde</h3>
+                        <h3>Acerca de Peiper Code</h3>
                         <p>Grupo freelance que ofrece software de calidad y ágil.</p>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Peiper Cøde <?php echo date('Y'); ?>
+                        Copyright &copy; Peiper Code <?php echo date('Y'); ?>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
     <?php
         $servername = "localhost:3306";
         $username = "adminE17";
-    $password = "admin2017";
+        $password = "admin2017";
     $dbname = "elecciones2017";
 
         // Create connection
@@ -132,7 +132,7 @@
                 <div class="container">
                     <div class="row">
                         <h2><?php echo $model['nombrecategoria'];?></h2> <br>
-                        <div class="col-lg-9 col-lg-offset-2">
+                        <div class="col-lg-12 col-lg-offset-0">
                             <div class="modal-body">
                                 <?php $sqlP = "select pro.idpropuestas, cat.idcategorias, cat.nombrecategoria, pro.descripcion, can.rutaimagen
                                 from propuestas pro join categorias cat on pro.idcategoria = cat.idcategorias
@@ -142,10 +142,12 @@
                                 ?>
                                 <?php $rowNumbers = 0; ?>
                                 <?php while($row = $resultP->fetch_assoc()) { ?>
-                                        <div class="col-lg-3 col-sm-3 col-xs-6">
+                                        <div class="col-lg-12 col-sm-12 col-xs-12">
                                             <?php $rutaImagen = Yii::app()->baseUrl."/images/".$row['rutaimagen']; ?>
-                                            <img src="<?php echo $rutaImagen;?>" class="img-circle" alt="" style="width: 50%; height: 50%">
-                                            <div class="col-lg-12">
+                                            <div class="col-lg-3 col-sm-3 col-xs-6">
+                                              <img src="<?php echo $rutaImagen;?>" class="img-circle" alt="" style="width: 50%; height: 50%">
+                                            </div>
+                                            <div class="col-lg-7">
                                                 <p style="font-size: 130%"><?php echo $row['descripcion'];?></p>
                                             </div>
                                         </div>
