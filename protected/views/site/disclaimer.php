@@ -29,7 +29,7 @@
                 </p>
                 <br>
                 <p>
-                    <b>Nota:</b> Insistimos en que descargue y lea las propuestas de los candidatos para que pueda formar una opinión objetiva para realizar su voto.
+                    <b>Nota:</b> Insistimos en que descargue y lea las propuestas de los candidatos para que pueda formar una opinión objetiva y vote con conocimiento.
                 </p>
             </div>
         </div>

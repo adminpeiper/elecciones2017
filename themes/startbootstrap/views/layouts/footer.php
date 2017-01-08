@@ -148,7 +148,10 @@
                                               <img src="<?php echo $rutaImagen;?>" class="img-circle" alt="" style="width: 50%; height: 50%">
                                             </div>
                                             <div class="col-lg-7">
-                                                <p style="font-size: 130%"><?php echo $row['descripcion'];?></p>
+                                                <p style="font-size: 103%" align="left"><?php echo $row['descripcion'];?></p>
+                                            </div>
+                                            <div class="col-lg-7">
+                                              &nbsp;
                                             </div>
                                         </div>
                                 <?php }?>
