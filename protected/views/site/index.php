@@ -188,11 +188,17 @@
                         $result = $conn->query($sql);
                       ?>
 
+                        <?php $firstLoop = false; ?>
+
                       <div class="tab-content">
                         </br>
                         <?php while($row = $result->fetch_assoc()) { ?>
-
+                        <?php if(!$firstLoop) {?>
                           <div id="tabCandidato<?php echo $row['idcandidatos'];?>" class="tab-pane fade in active">
+                          <?php $firstLoop = true; ?>
+                        <?php } else {?>
+                          <div id="tabCandidato<?php echo $row['idcandidatos'];?>" class="tab-pane fade">
+                        <?php } ?>
                             <div class="row">
                               <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" align="center">
                                 <div class="fb-page" data-href="https://www.facebook.com/<?php echo $row['usuariofacebook'];?>/" data-tabs="timeline" data-height="500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
