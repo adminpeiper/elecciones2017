@@ -48,7 +48,7 @@
             ?>
             <div id="info" class="alert-warning">
                 <p style="padding: 1% 0% 0% 1%">Los resultados presentados a continuación son datos de las votaciones hechos anteriormente por personas que han
-                visitado nuesta página, no están ligados de ninguna forma con la CNE y/o encuentas de otras empresas.</p>
+                visitado nuesta página, no están ligados de ninguna forma con la CNE y/o encuestas de otras empresas.</p>
                 <p style="padding: 1% 0% 1% 1%">Al momento de votar <b>no guardamos</b> tu número de telefóno, correo, dirección IP o ningún otro tipo de información,
                 es totalmente anónimo.</p>
             </div>

@@ -24,7 +24,7 @@
     }
 ?>
 <!-- Header -->
-    <header style="background-image:url(<?php echo $rutaImagenHeader;?>) !important" >
+    <header style="background-image:url(<?php echo $rutaImagenHeader;?>) !important; height: auto;" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -125,8 +125,10 @@
                 </div>
             </div>-->
             <div class="row">
+              <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12" align="center">
+
                 <?php while($row = $result->fetch_assoc()) { ?>
-                    <div class="col-sm-3 portfolio-item" align="center">
+                    <div class="col-sm-5 portfolio-item" align="center">
                         <a href="#portfolioModalCategoria<?php echo $row['idcategorias'];?>" class="portfolio-link" data-toggle="modal">
                             <div class="caption">
                                 <div class="caption-content">
@@ -139,6 +141,76 @@
                         </a>
                     </div>
                 <?php }?>
+
+              </div>
+
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                  <a class="twitter-timeline" data-height="700" href="https://twitter.com/peipercode/lists/candidatos-presidenciales">Una lista de Twitter por PeiperCode</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="success" id="redesSociales" style="background-color: #2c3e50!important">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Los candidatos en las Redes Sociales</h2>
+                    <h3 class="fa fa-fw fa-minus"/>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="portfolio">
+        <div class="container">
+            <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                      <ul class="nav nav-tabs">
+                        <?php
+                          $sql = "SELECT * FROM candidatos where estado = 'A' and partidopolitico is not null order by idcandidatos";
+                          $result = $conn->query($sql);
+                          $firstLoop = false;
+                        ?>
+
+                        <?php while($row = $result->fetch_assoc()) { ?>
+                            <?php if(!$firstLoop) {?>
+                                <li class="active"><a data-toggle="tab" href="#tabCandidato<?php echo $row['idcandidatos'];?>"><?php echo $row['nombrecandidatos'];?></a></li>
+                                <?php $firstLoop = true;?>
+                            <?php } else {?>
+                                <li><a data-toggle="tab" href="#tabCandidato<?php echo $row['idcandidatos'];?>"><?php echo $row['nombrecandidatos'];?></a></li>
+                            <?php } ?>
+                        <?php }?>
+                      </ul>
+
+                      <?php
+                        $sql = "SELECT * FROM candidatos where estado = 'A' and partidopolitico is not null order by idcandidatos";
+                        $result = $conn->query($sql);
+                      ?>
+
+                      <div class="tab-content">
+                        </br>
+                        <?php while($row = $result->fetch_assoc()) { ?>
+
+                          <div id="tabCandidato<?php echo $row['idcandidatos'];?>" class="tab-pane fade in active">
+                            <div class="row">
+                              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" align="center">
+                                <div class="fb-page" data-href="https://www.facebook.com/<?php echo $row['usuariofacebook'];?>/" data-tabs="timeline" data-height="500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                                  <blockquote cite="https://www.facebook.com/<?php echo $row['usuariofacebook'];?>/" class="fb-xfbml-parse-ignore">
+                                    <a href="https://www.facebook.com/<?php echo $row['usuariofacebook'];?>/"><?php echo $row['nombrecandidatos'];?></a>
+                                  </blockquote>
+                                </div>
+                              </div>
+                              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" align="center">
+                                <a class="twitter-timeline" data-lang="es" data-height="700" href="https://twitter.com/<?php echo $row['usuariotwitter'];?>">Tweets por <?php echo $row['nombrecandidatos'];?></a>
+                              </div>
+                            </div>
+                          </div>
+
+                        <?php }?>
+                      </div>
+
+                    </div>
             </div>
         </div>
     </section>

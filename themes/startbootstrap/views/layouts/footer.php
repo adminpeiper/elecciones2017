@@ -7,7 +7,7 @@
                         <p>Guayaquil, Ecuador
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>Visitanos</h3>
+                        <h3>Vis&iacutetanos</h3>
                         <ul class="list-inline">
                             <li>
                                 <a href="https://www.facebook.com/peipercode" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>

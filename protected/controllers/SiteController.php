@@ -138,28 +138,32 @@ class SiteController extends Controller
         public function actionVotacion()
 	{
             $votado = false;
+						//$modelVotacion = new Votacion;
 
-            /*if(isset($_POST['g-recaptcha-response']))
-            {*/
-                if(!empty($_POST['g-recaptcha-response']))
-                {
-                    $secret = '6LdIIQwUAAAAAD0r-fb1u6l-q61yd7TgBQtNRej-';
-                    $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']);
-                    $responseData = json_decode($verifyResponse);
-                    if($responseData->success){
-                        if(isset($_POST['radio'])) {
-                            $voto = !empty($_POST['radio']) ? 0 : $_POST['radio'];
+							if(isset($_POST['g-recaptcha-response']))
+	            {
+	                if(!empty($_POST['g-recaptcha-response']))
+	                {
+	                    $secret = '6LdIIQwUAAAAAD0r-fb1u6l-q61yd7TgBQtNRej-';
+	                    $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']);
+	                    $responseData = json_decode($verifyResponse);
+	                    if($responseData->success){
+	                        if(isset($_POST['radio'])) {
+	                            $voto = !empty($_POST['radio']) ? 0 : $_POST['radio'];
 
-                            $this->guardarVotacion($_POST['radio']);
-                            $votado = true;
-                        }
-                    } else {
-                        Yii::app()->user->setFlash('danger', '<p style="padding: 1% 0% 1% 1%"> Error con el reCAPTCHA. Recuerde seleccionarlo el reCAPTCHA. </p>');
-                    }
-                } /*else {
-                    Yii::app()->user->setFlash('danger', '<p style="padding: 1% 0% 1% 1%"> Falta seleccionar el reCAPTCHA. </p>');
-                }*/
-            //}
+	                            $this->guardarVotacion($_POST['radio']);
+	                            $votado = true;
+	                        } else {
+			                        Yii::app()->user->setFlash('danger', '<p style="padding: 1% 0% 1% 1%"> No ha seleccionado una opción de voto. </p>');
+			                    }
+	                    } else {
+	                        Yii::app()->user->setFlash('danger', '<p style="padding: 1% 0% 1% 1%"> Error con el reCAPTCHA. </p>');
+	                    }
+	                } else {
+	                    Yii::app()->user->setFlash('danger', '<p style="padding: 1% 0% 1% 1%"> Falta seleccionar el reCAPTCHA. </p>');
+	                }
+	            }
+
             $this->pageTitle = "Elecciones 2017 - Votación";
             $this->render('votacion',array('votado'=> $votado));
 	}
